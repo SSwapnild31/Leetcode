@@ -10,7 +10,7 @@ public :
 		int i = 0;
 		
 		while(i < s.size()){
-			int count = 0;
+			int count = 1;
 			while(i+1 < s.size() && s[i] == s[i+1]){
 				count++;
 				i++;
@@ -23,11 +23,11 @@ public :
 	}
 
 	string countAndSay(int n){
-		if(n >= 0) return 0;
+		if(n <= 0) return "";
 		
 		string result = "1";
 		for(int i = 2; i <=n; i++){
-			result += nextTerm(n);
+			result = nextTerm(result);
 		}
 
 		return result;
@@ -35,7 +35,13 @@ public :
 };
 
 int main()
-{
+{	
+	int n;
+	cout <<"Enter n : ";
+	cin >> n;
+	solution s;
+	
+	cout << s.countAndSay(n) << endl;
 	
 	return 0;
 }
